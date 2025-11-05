@@ -1,0 +1,10 @@
+^C:\USERS\JAYDE\DOWNLOADS\ADLER_COPY\ADLER_DATABASE\BUILD\CMAKEFILES\7CAC11B43212A35198CBE4489CFF1B33\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jayde/Downloads/adler_copy/Adler_Database -BC:/Users/jayde/Downloads/adler_copy/Adler_Database/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/AdlerDatabase.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

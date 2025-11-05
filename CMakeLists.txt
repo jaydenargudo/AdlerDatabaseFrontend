@@ -11,9 +11,9 @@ add_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX)
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/headers
-    libraries/json/include
-    libraries/webview/core/include
-    libraries/WebView2/build/native/include
+    ${CMAKE_SOURCE_DIR}/libraries/json/include
+    ${CMAKE_SOURCE_DIR}/libraries/webview/core/include
+    ${CMAKE_SOURCE_DIR}/libraries/WebView2/build/native/include
 )
 
 set(SRCS
@@ -33,8 +33,36 @@ endif()
 
 # Windows-specific libraries
 if (WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32 version shlwapi)
+    target_link_libraries(${PROJECT_NAME} PRIVATE 
+        ws2_32 
+        version 
+        shlwapi
+        ${CMAKE_SOURCE_DIR}/libraries/WebView2/build/native/x64/WebView2LoaderStatic.lib
+    )
 endif()
+
+# if (WIN32)
+#     target_link_libraries(${PROJECT_NAME} PRIVATE 
+#         ${CMAKE_SOURCE_DIR}/libraries/WebView2/build/native/x64/libWebView2Loader.a
+#         ws2_32 
+#         version 
+#         shlwapi
+#         ole32
+#         oleaut32
+#         user32
+#         gdi32
+#         # ${CMAKE_SOURCE_DIR}/libraries/WebView2/build/native/x64/WebView2LoaderStatic.lib
+
+#     )
+    
+#     # target_link_options(${PROJECT_NAME} PRIVATE
+#     #     "-INCLUDE:?CreateWebView2EnvironmentWithOptions@@YAJPEBUWebView2EnvironmentOptions@@PEAUIWebView2CreateCoreWebView2EnvironmentCompletedHandler@@@Z"
+#     # )
+# endif()
+
+# if (WIN32)
+#     target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32 version shlwapi)
+# endif()
 
 # Web content copy
 set(HTML_SOURCE_DIR "${CMAKE_SOURCE_DIR}/web")

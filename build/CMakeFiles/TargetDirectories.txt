@@ -1,0 +1,5 @@
+C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/CMakeFiles/AdlerDatabase.dir
+C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/CMakeFiles/PACKAGE.dir
+C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/CMakeFiles/INSTALL.dir
+C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jayde/Downloads/adler_copy/Adler_Database/build/CMakeFiles/ZERO_CHECK.dir

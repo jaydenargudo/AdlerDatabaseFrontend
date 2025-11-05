@@ -7,11 +7,17 @@
 
 using json = nlohmann::json;
 
-std::string APIClient::url = "192.168.120.66";
+// std::string APIClient::url = "192.168.120.66";
+// std::string APIClient::url = "192.168.120.177:5000"; // LAN IP, this is what we want it to point to when making the actual server that will be used
+// std::string APIClient::url = "http://127.0.0.1";
+std::string APIClient::url = "127.0.0.1";
+// std::string APIClient::url = "192.168.120.177";
+
 
 std::string APIClient::get_contact(const json &jsonPayload)
 {
     httplib::Client Client(url, 5000);
+    // httplib::Client Client('127.0.0.1', 5000);
     std::string jsonBody = jsonPayload.dump();
 
     auto post_response = Client.Post("/get_contact", jsonBody, "application/json");

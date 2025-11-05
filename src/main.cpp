@@ -1,3 +1,4 @@
+#define NOMINMAX
 #include "webview.h"
 #include <future>
 #include <iomanip>
@@ -24,12 +25,15 @@ std::string escape_json_for_js(const std::string &json) {
   return escaped.str();
 }
 
+// Set up bindings that can be called from JavaScript
+// For example window.loadHTMLPage("pageName") will call the loadHTMLPage function
 void createBindings(webview::webview &w) {
   w.bind("loadHTMLPage", [&](const std::string &msg) -> std::string {
     w.navigate(BaseFilePath + "../web/" + msg + ".html");
     return "";
   });
 
+  // Intended to be used for exporting member data, is not fully tested
   w.bind("getMemberExportData", [&](const std::string &msg) -> std::string {
     LogToFile("Exporting member data");
     json jsonPayload;
@@ -114,6 +118,7 @@ void createBindings(webview::webview &w) {
     return escape_json_for_js(finalJSON.dump());
   });
 
+  // Get data to auto fill the member form
   w.bind("loadMemberForm", [&](const std::string &msg) -> std::string {
     w.navigate(BaseFilePath + "../web/addMember.html");
     LogToFile(msg);
@@ -222,6 +227,7 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
+  // Get data to auto fill the caregiver form
   w.bind("loadCaregiverForm", [&](const std::string &msg) -> std::string {
     w.navigate(BaseFilePath + "../web/addCaregiver.html");
     LogToFile(msg);
@@ -310,6 +316,7 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
+  // Get data to auto fill the contact form
   w.bind("loadContactForm", [&](const std::string &msg) -> std::string {
     w.navigate(BaseFilePath + "../web/addContact.html");
     LogToFile(msg);
@@ -365,6 +372,7 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
+  // GEt data for pop-up modal for members
   w.bind("createMemberModal", [&](const std::string &msg) -> std::string {
     json jsonPayload;
     jsonPayload["id"] = msg.substr(1, msg.size() - 2);
@@ -424,6 +432,7 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
+  // Get data for pop-up modal for caregivers
   w.bind("createCaregiverModal", [&](const std::string &msg) -> std::string {
     json jsonPayload;
     jsonPayload["id"] = msg.substr(1, msg.size() - 2);
@@ -454,6 +463,7 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
+  // Get data for pop-up modal for contacts
   w.bind("createContactModal", [&](const std::string &msg) -> std::string {
     json jsonPayload;
     jsonPayload["id"] = msg.substr(1, msg.size() - 2);

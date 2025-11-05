@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm   navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateMember('')" href="#">Add Member</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateCaregiver('')" href="#">Add Caregiver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateContact('')" href="#">Add Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="goToMembers" href="#">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="goToContacts" href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <script>
+        document.getElementById("goToMembers").addEventListener("click", function() {
+            window.loadMembers();
+        });
+        document.getElementById("goToMembers").addEventListener("click", function() {
+            window.loadMembers();
+        });
+
+        document.getElementById("goToContacts").addEventListener("click", function() {
+            window.loadContacts();
+        });
+        function updateMember(userID) {
+            window.loadMemberForm(userID.toString());
+        }
+
+        function updateCaregiver(userID) {
+            window.loadCaregiverForm(userID.toString());
+        }
+
+        function updateContact(userID) {
+            window.loadContactForm(userID.toString());
+        }
+    </script>
+</body>
+</html>
