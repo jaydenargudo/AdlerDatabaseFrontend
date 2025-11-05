@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="updateMember('')" href="#">Add Member :>>>></a>
+                        <a class="nav-link" onclick="updateMember('')" href="#">Add Member</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" onclick="updateCaregiver('')" href="#">Add Caregiver</a>
@@ -138,7 +138,7 @@
                 const memberCard = document.createElement("div");
                 memberCard.className = "member-card";
                 memberCard.innerHTML = `
-                    <div class="card user-card" id="member${i}" style="padding: 15px; cursor: pointer;" onclick=memberPopUp(${jsonData["id"][i]})>
+                    <div class="card user-card" id="member${i}" style="padding: 15px; cursor: pointer;" onclick=memberPopUp('${jsonData["id"][i]}'')>
                         <div class="card-block">
                             <div class="row">
                                 <div class="d-flex align-items-center">
