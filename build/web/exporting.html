@@ -8,10 +8,15 @@
     <style>
         body {
             font-family: 'Inter', Arial, sans-serif; /* Using Inter font */
-            background-color: #f8f9fa; /* Light gray background for the page */
+            /* background-color: #f8f9fa; /* Light gray background for the page */ 
+            margin: 20px;
         }
         header { 
             font-size: 24px;
+            margin-bottom: 20px;
+        }
+        ul li a {
+            margin-right: 20px;
         }
         .filter-row {
             display: flex;
@@ -47,10 +52,10 @@
         .table-hover tbody tr:hover {
             background-color: #e9ecef; 
         }
-        .container {
+        /* .container {
             padding-top: 1.5rem;
             padding-bottom: 3rem;
-        }
+        } */
         .navbar {
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             border-radius: 0.375rem; 
@@ -58,11 +63,11 @@
         }
         .navbar .nav-link {
             border-radius: 0.25rem; 
-            margin-right: 0.25rem;
+            /* margin-right: 0.25rem; */
         }
-        .navbar .nav-link:hover, .navbar .nav-link:focus {
+        /* .navbar .nav-link:hover, .navbar .nav-link:focus {
             background-color: rgba(0,0,0,0.05); 
-        }
+        } */
         #fieldsCheckboxesContainer .form-check {
             background-color: #fff;
             padding: 0.75rem 1rem 0.75rem 2.5rem; 
@@ -73,14 +78,16 @@
          #fieldsCheckboxesContainer .form-check-input {
             margin-top: 0.4em; 
         }
+        
 
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <header>
             <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow-sm">
-                <div class="container-fluid"> <a class="navbar-brand" href="#">DataTool</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="container-fluid"> 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -99,13 +106,60 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="goToContacts" href="#">Contacts</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="exporting.html">Export</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-    </div>
+    </div> -->
+<div class="container">
 
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow-sm justify-content-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
+                <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0"> -->
+                <ul class="navbar-nav mt-2 mt-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateMember('')" href="#">Add Member</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateCaregiver('')" href="#">Add Caregiver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="updateContact('')" href="#">Add Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="goToMembers" href="#">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="goToContacts" href="#">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="" href="exporting.html">Export</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown dmenu hidden">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Our Service
+                        </a> 
+                        <div class="dropdown-menu sm-menu">
+                                <a class="dropdown-item" href="#">service2</a>
+                                <a class="dropdown-item" href="#">service 2</a>
+                                <a class="dropdown-item" href="#">service 3</a>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    
     <div class="container"> <h2 class="mb-4 text-center">Export Data to Excel</h2>
 
         <div class="row">

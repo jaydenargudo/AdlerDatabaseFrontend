@@ -357,16 +357,30 @@ void createBindings(webview::webview &w) {
     return "";
   });
 
-  w.bind("getMemberData", [&](const std::string &msg) -> std::string {
-    std::string message;
+  // Original Version
+  // w.bind("getMemberData", [&](const std::string &msg) -> std::string {
+  //   std::string message;
 
-    json jsonPayload;
-    jsonPayload["name"] = "";
-    std::string result = APIClient::get_member(jsonPayload);
-    std::string caregivers = APIClient::get_caregiver(jsonPayload);
-    w.eval("updateMembers(`" + result + "`,`" + caregivers + "`);");
+  //   json jsonPayload;
+  //   jsonPayload["name"] = "";
+  //   std::string result = APIClient::get_member(jsonPayload);
+  //   std::string caregivers = APIClient::get_caregiver(jsonPayload);
+  //   w.eval("updateMembers(`" + result + "`,`" + caregivers + "`);");
+  //   return "";
+  // });
+
+// Other version  
+  w.bind("getMemberData", [&](const std::string &msg) -> std::string {
+    // Fetch data from your database
+    std::string members = APIClient::get_member({});
+    std::string caregivers = APIClient::get_caregiver({});
+
+    // Properly escape JSON for JavaScript
+    std::string jsCode = "updateMembers(" + members + "," + caregivers + ");";
+    w.eval(jsCode);
+
     return "";
-  });
+});
 
   w.bind("getContactData", [&](const std::string &msg) -> std::string {
     std::string message;

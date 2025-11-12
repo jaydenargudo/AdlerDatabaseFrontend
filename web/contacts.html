@@ -53,7 +53,42 @@
     </style>
 </head>
 <body>
-    <header>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light rounded shadow-sm justify-content-center">
+                <div class="container-fluid"> 
+                    <!-- <a class="navbar-brand" href="#">DataTool</a>  -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
+                        <!-- <ul class="navbar-nav mr-auto mb-2 mb-lg-0">  -->
+                        <ul class="navbar-nav mb-2 mb-lg-0 text-center"> 
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="updateMember('')" href="#">Add Member</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="updateCaregiver('')" href="#">Add Caregiver</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="updateContact('')" href="#">Add Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="goToMembers" href="#">Members</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="goToContacts" href="#">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="exporting.html">Export</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <!-- <header>
         <nav class="navbar navbar-expand-sm   navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,6 +108,12 @@
                     <li class="nav-item">
                         <a class="nav-link" id="goToMembers" href="#">Members</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="goToContacts" href="#">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="" href="exporting.html">Export</a>
+                    </li>
                     <li class="nav-item dropdown dmenu hidden">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                             Our Service
@@ -86,7 +127,7 @@
                 </ul>
             </div>
         </nav>
-    </header>
+    </header> -->
     <div class="modalContainer" id="modalWrapper"></div>
     <div class="container-fluid">
         <h1>Contacts</h1>
